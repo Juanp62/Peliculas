@@ -1,0 +1,35 @@
+@use '../base/variables' as v;
+
+.cont-nav {
+    width: 60%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.search{
+    width: 5%;
+    appearance: none;
+    padding: 11px 4px;
+    background: #eee;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    outline: none;
+    color: white;
+    font-family: v.$fuente-principal;
+    
+}
+.search::placeholder{
+    font-family: "Font Awesome 5 Free"; 
+    font-weight: 900;
+    text-align: end;
+}
+
+.search:focus{
+    width: 30%;
+    border: none;
+    border-bottom: 1px solid #eee;
+    border-radius: 5px;
+    transition: 0.8s;
+    background: transparent;
+    font-family: v.$fuente-principal;
+}

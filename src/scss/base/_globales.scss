@@ -1,0 +1,11 @@
+@use 'variables'as v;
+
+
+header{
+    width: 100%;
+    display: flex;
+
+}
+p{
+    font-family: v.$fuente-parrafo;
+}

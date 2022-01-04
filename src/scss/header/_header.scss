@@ -1,0 +1,12 @@
+@use '../base/variables' as v;
+
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: v.$primario;
+}
