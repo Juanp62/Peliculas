@@ -8,12 +8,12 @@ $(document).ready(function() {
     fetch(URL).then(response => response.json()).then(results => {
         let a = this.original_title = results;
         let b = a.results;
-        console.log(b)
+        //console.log(b)
         for(let i=0; i<20;  i++){            
             $('#p').append(`
             <div class="card">`+`<img src="https://image.tmdb.org/t/p/w500${b[i].backdrop_path}" />`+`<div class="cont-sub"><h2   class="sub">${b[i].name}</h2><a href="#" class="cta" >modal</a><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
         }
-        $('.sub').click(function(){
+        /*$('.sub').click(function(){
             let id_m = $('.id-movie').val();
             
             console.log(b[0].id)
@@ -21,7 +21,29 @@ $(document).ready(function() {
                 console.log("entro"+b[i].id);                
             }
              
+        })*/
+
+        //Ventana modal
+        let cerrar = document.querySelectorAll(".close")[0];
+        let abrir = document.querySelectorAll(".cta")[0];
+        let modal = document.querySelectorAll(".modal")[0];
+        let modalC = document.querySelectorAll(".modal-container")[0];
+        console.log(abrir);
+        abrir.addEventListener ("click", function(e) {
+            e.preventDefault();
+            console.log(abrir);
+            modalC.style.opacity = "1";
+            modalC.style.visibility = "visible";
+            modal.classList.toggle("modal-close");
         })
+
+        cerrar.addEventListener("click", function(){
+            modal.classList.toggle("modal-close");
+            setTimeout(function(){
+                modalC.style.opacity = "0";
+                modalC.style.visibility = "hidden";
+            }, 900)
+        })        
     })
 
    
@@ -49,26 +71,7 @@ $(document).ready(function() {
     
     
 
-    //Ventana modal
-    let cerrar = document.querySelectorAll(".close")[0];
-    let abrir = document.querySelectorAll(".cta")[0];
-    let modal = document.querySelectorAll(".modal")[0];
-    let modalC = document.querySelectorAll(".modal-container")[0];
-
-    abrir.addEventListener ("click", function(e) {
-        e.preventDefault();
-        modalC.style.opacity = "1";
-        modalC.style.visibility = "visible";
-        modal.classList.toggle("modal-close");
-    })
-
-    cerrar.addEventListener("click", function(){
-        modal.classList.toggle("modal-close");
-        setTimeout(function(){
-            modalC.style.opacity = "0";
-            modalC.style.visibility = "hidden";
-        }, 900)
-    })
+    
 });
 
 
