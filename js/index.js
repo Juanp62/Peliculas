@@ -11,7 +11,7 @@ $(document).ready(function() {
         console.log(b)
         for(let i=0; i<20;  i++){            
             $('#p').append(`
-            <div class="card">`+`<img src="https://image.tmdb.org/t/p/w500${b[i].poster_path}" />`+`<div class="cont-sub"><h2   class="sub">${b[i].name}</h2><a href="#" class="cta" >modal</a><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
+            <div class="card">`+`<img src="https://image.tmdb.org/t/p/w500${b[i].backdrop_path}" />`+`<div class="cont-sub"><h2   class="sub">${b[i].name}</h2><a href="#" class="cta" >modal</a><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
         }
         $('.sub').click(function(){
             let id_m = $('.id-movie').val();
@@ -20,7 +20,7 @@ $(document).ready(function() {
             for ( let i = 0; b[i].id = id_m;  i++) {
                 console.log("entro"+b[i].id);                
             }
-            
+             
         })
     })
 
