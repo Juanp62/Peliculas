@@ -5,12 +5,13 @@ const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer')
 
 function css(done){
-    //compilacion de SASS
+    //compilacion de SCSS
     src('src/scss/app.scss')
         .pipe( sass() )
         .pipe( postcss([ autoprefixer() ]) )
         .pipe( dest('build/css'));
-
+    
+    
     done();
 }
 
