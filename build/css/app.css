@@ -527,6 +527,7 @@ p {
   display: flex;
   justify-content: space-around;
   margin: 1rem 0;
+  flex-wrap: wrap;
 }
 .modal-container .modal .cont-mod .cont-text .cont-btn .btn-season {
   border: none;
