@@ -21,17 +21,18 @@ $(document).ready(function() {
         }
 
         //Ventana modal
-        $('.cta').click (function(e){
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            $('.modal-container').css({'opacity': '1', "visibility" : "visible"})
-            $('.modal').removeClass('modal-close')
+        let abrir = document.querySelectorAll('.cta')
+        let id_movie = document.querySelectorAll('.id-movie');
+        abrir.forEach((btn, i) =>{
             
-            // carga de informacion 
-            let id_m = $('.id-movie').val();
-            const URL_season = `${BASEURL}${id_m}?api_key=${API_KEY}`;
-
-            fetch(URL_season).then(response => response.json()).then(results => {
+            abrir[i].addEventListener('click', ()=>{
+                $('.modal-container').css({'opacity': '1', "visibility" : "visible"})
+                $('.modal').removeClass('modal-close')
+                console.log(id_movie[i].value)
+                id_m = id_movie[i].value
+                const URL_season = `${BASEURL}${id_m}?api_key=${API_KEY}`;
+                //console.log(URL_season)
+                fetch(URL_season).then(response => response.json()).then(results => {
                 let a = results
                 let season = a.seasons
                 console.log(a)
@@ -41,16 +42,11 @@ $(document).ready(function() {
                 for (let i = 0; i < season.length; i++) {
                     $('.cont-btn').append(`<input class="btn-season" value="${season[i].name}" type="button" >`)    
                 }
-
-                let btn_id = $('.btn-season').val();
-                console.log(btn_id)
-                
-                // $('.btn-season').click(function(){
-            
-                // })
-                
-            } )
+                })
+            })
         })
+
+        
         
         $('.close').click(function(e){
             

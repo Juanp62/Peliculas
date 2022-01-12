@@ -540,6 +540,9 @@ p {
   font-weight: 900;
   box-shadow: 0px 10px 11px -9px rgba(116, 115, 115, 0.73);
 }
+.modal-container .modal::-webkit-scrollbar {
+  display: none;
+}
 .modal-container .close {
   position: absolute;
   top: 3px;

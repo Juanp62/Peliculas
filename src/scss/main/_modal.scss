@@ -79,6 +79,9 @@
             }
         }
     }
+    .modal::-webkit-scrollbar {
+        display: none;
+    }
 
     .close{
         position: absolute;
