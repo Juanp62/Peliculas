@@ -11,20 +11,30 @@ $(document).ready(function() {
         //console.log(b)
         for(let i=0; i<20;  i++){    
             if(b[i].backdrop_path == null){
-                $('#p').append(`<div class="card">`+`<img src="/../src/img/broken-image.png" />`+`<div class="cont-sub"><h2   class="sub">${b[i].name}</h2><a href="#" class="cta" >modal</a><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
+                $('#p').append(`<div class="card">`+`<img src="/../src/img/broken-image.png" />`+`<div class="cont-sub"><h2   class="sub">${b[i].name}</h2><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
             }else{
-                $('#p').append(`<div class="card">`+`<img src="`+`https://image.tmdb.org/t/p/w500${b[i].backdrop_path}" />`+`<div class="cont-sub"><h2   class="sub">${b[i].name}</h2><a href="#" class="cta" >modal</a><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
+                $('#p').append(`<div class="card">`+`<img src="https://image.tmdb.org/t/p/w500${b[i].backdrop_path}" />`+`<div class="cont-sub"><a class="sub cta">${b[i].name}</a><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
             }
         }
-        /*$('.sub').click(function(){
+        $('.sub').click(function(){
             let id_m = $('.id-movie').val();
-            
-            console.log(b[0].id)
-            for ( let i = 0; b[i].id = id_m;  i++) {
-                console.log("entro"+b[i].id);                
-            }
-             
-        })*/
+            const URL_season = `${BASEURL}${id_m}?api_key=${API_KEY}`;
+            fetch(URL_season).then(response => response.json()).then(results => {
+                let a = results;
+                //sconsole.log(a.seasons[0].name)
+                let season = a.seasons
+                // console.log (a)
+                $('.cont-mod').append(`<div class="mod.text" ><img src="https://image.tmdb.org/t/p/w500${a.poster_path}"/></div>`);
+                for (let i = 0; i < season.length; i++) {
+                    console.log(season[i].name)                    
+                    $('.cont-mod').append(`<button value="${season[i].name}" class="btn-season" >${season[i].name}</button>`)
+                }
+                $('.btn-season').click(function(){
+                    let btn_season = $('.btn-season').val();
+                    console.log(btn_season)
+                })
+            } )              
+        })
 
        
         //Ventana modal
@@ -38,6 +48,7 @@ $(document).ready(function() {
             modalC.style.opacity = "1";
             modalC.style.visibility = "visible";
             modal.classList.toggle("modal-close");
+            
         })
 
         cerrar.addEventListener("click", function(){

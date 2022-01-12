@@ -23,17 +23,17 @@ section img{
      
 }
 
-.cta{
-    display: inline-block;
-    padding: 7px;
-    width: 100px;
-    border-radius: 50px;
-    border: 1px solid #fff;
-    text-align: center;
-    text-decoration: none;
-    color: #283773;
-    background: #fff;
-}
+// .cta{
+//     display: inline-block;
+//     padding: 7px;
+//     width: 100px;
+//     border-radius: 50px;
+//     border: 1px solid #fff;
+//     text-align: center;
+//     text-decoration: none;
+//     color: #283773;
+//     background: #fff;
+// }
 
 
 .modal-container{
@@ -70,7 +70,11 @@ section img{
     height: 25px;
     background: #c44a4a;
     line-height: 25px;
-    cursor: pointer;   
+    cursor: pointer; 
+    text-align: center; 
+
+    color: #fff;
+    border-radius: 5px;
 }
 
 .modal-close{
@@ -80,4 +84,12 @@ section img{
 .modal img{
     height: 60%;
 
+}
+
+.cont-mod{
+    width: 100%;
+    
+    .mod-text{
+        display: flex;
+    }
 }

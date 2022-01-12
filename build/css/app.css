@@ -442,6 +442,10 @@ p {
 
 .cont-sub {
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 }
 
 .filter {
@@ -457,17 +461,15 @@ p {
 
 .sub:hover {
   display: flex;
-  padding-left: 5px;
+  justify-content: center;
   align-items: center;
-  width: auto;
-  height: 4rem;
+  width: 100%;
+  height: 3rem;
   color: #eeee;
   font-weight: 900;
   font-size: 18px;
   margin: 0;
   background-color: #252023;
-  border-radius: 0 0 3px 3px;
-  cursor: pointer;
 }
 
 .card img {
@@ -494,18 +496,6 @@ section p {
 
 section img {
   height: 60%;
-}
-
-.cta {
-  display: inline-block;
-  padding: 7px;
-  width: 100px;
-  border-radius: 50px;
-  border: 1px solid #fff;
-  text-align: center;
-  text-decoration: none;
-  color: #283773;
-  background: #fff;
 }
 
 .modal-container {
@@ -546,6 +536,9 @@ section img {
   background: #c44a4a;
   line-height: 25px;
   cursor: pointer;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
 }
 
 .modal-close {
@@ -555,4 +548,11 @@ section img {
 
 .modal img {
   height: 60%;
+}
+
+.cont-mod {
+  width: 100%;
+}
+.cont-mod .mod-text {
+  display: flex;
 }

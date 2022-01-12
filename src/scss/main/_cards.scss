@@ -19,6 +19,10 @@
 
 .cont-sub{
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 .filter{
@@ -33,21 +37,19 @@
 }
 .sub:hover{
     display: flex;
-    padding-left: 5px;
+    justify-content: center;
     align-items: center;
-    width: auto;
-    height: 4rem;
+    width: 100%;
+    height: 3rem;
     color: #eeee;
     font-weight: 900;
     font-size: 18px;
     margin: 0;
     background-color: v.$primario;
-    border-radius: 0 0 3px 3px;
-    cursor: pointer;
 }
 
 .card img{
     width: 100%;
-   // margin-bottom: 1rem;
+   
 }
 
