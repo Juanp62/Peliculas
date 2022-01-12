@@ -368,52 +368,45 @@ p {
   display: flex;
   justify-content: flex-end;
 }
-
-.search {
-  width: 5%;
+.cont-nav .search {
+  width: 6%;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  padding: 11px 4px;
+  padding: 11px 0px;
   background: #eee;
   border: 1px solid #eee;
   border-radius: 20px;
   outline: none;
-  color: white;
+  color: #000;
   font-family: "Roboto", sans-serif;
 }
-
-.search::-webkit-input-placeholder {
+.cont-nav .search::-webkit-input-placeholder {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   text-align: end;
 }
-
-.search::-moz-placeholder {
+.cont-nav .search::-moz-placeholder {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   text-align: end;
 }
-
-.search:-ms-input-placeholder {
+.cont-nav .search:-ms-input-placeholder {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   text-align: end;
 }
-
-.search::-ms-input-placeholder {
+.cont-nav .search::-ms-input-placeholder {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   text-align: end;
 }
-
-.search::placeholder {
+.cont-nav .search::placeholder {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   text-align: end;
 }
-
-.search:focus {
+.cont-nav .search:focus {
   width: 30%;
   border: none;
   border-bottom: 1px solid #eee;
@@ -421,6 +414,7 @@ p {
   transition: 0.8s;
   background: transparent;
   font-family: "Roboto", sans-serif;
+  color: #fff;
 }
 
 #p {
@@ -430,8 +424,7 @@ p {
   grid-gap: 20px;
   margin: 0 auto;
 }
-
-.card {
+#p .card {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -439,8 +432,13 @@ p {
   border-radius: 3px;
   box-shadow: 2px 3px 6.5px 0px #dedede;
 }
-
-.cont-sub {
+#p .card img {
+  width: 100%;
+}
+#p .filter {
+  display: none;
+}
+#p .cont-sub {
   width: 100%;
   display: flex;
   justify-content: flex-start;
@@ -448,32 +446,26 @@ p {
   flex-direction: column;
 }
 
-.filter {
-  display: none;
-}
-
 .sub {
   color: #252023;
   font-size: 17px;
   font-family: "Roboto", sans-serif;
   margin: 1rem;
+  width: 100%;
+  text-align: center;
 }
 
 .sub:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 3rem;
   color: #eeee;
   font-weight: 900;
   font-size: 18px;
   margin: 0;
   background-color: #252023;
-}
-
-.card img {
-  width: 100%;
+  cursor: pointer;
 }
 
 .modal-container {
@@ -490,8 +482,7 @@ p {
   justify-content: center;
   align-items: center;
 }
-
-.modal {
+.modal-container .modal {
   width: 70%;
   height: 80%;
   background: white;
@@ -503,10 +494,55 @@ p {
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
 }
-
-.close {
+.modal-container .modal .cont-mod {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+.modal-container .modal .cont-mod .cont-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  width: 55%;
+  box-shadow: 2px 3px 6.5px 0px #dedede;
+  margin: 0.5rem;
+}
+.modal-container .modal .cont-mod .cont-text {
+  width: 45%;
+  font-family: "Roboto", sans-serif;
+  margin: 1.5rem 0;
+}
+.modal-container .modal .cont-mod .cont-text .subt {
+  font-weight: bold;
+  margin: 1rem 0.5rem;
+  color: #62515b;
+}
+.modal-container .modal .cont-mod .cont-text .cont-des p {
+  color: #626262;
+  margin: 0 0.5rem;
+  text-align: justify;
+}
+.modal-container .modal .cont-mod .cont-text .cont-btn {
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem 0;
+}
+.modal-container .modal .cont-mod .cont-text .cont-btn .btn-season {
+  border: none;
+  font-family: "Roboto", sans-serif;
+  border: none;
+  border-bottom: 1px solid #eee;
+  border-radius: 5px;
+  padding: 8px;
+  background: #e8e8e8;
+  color: #62515b;
+  font-weight: 900;
+  box-shadow: 0px 10px 11px -9px rgba(116, 115, 115, 0.73);
+}
+.modal-container .close {
   position: absolute;
-  top: 5px;
+  top: 3px;
   right: 5px;
   display: inline-block;
   width: 25px;
@@ -518,19 +554,7 @@ p {
   color: #fff;
   border-radius: 5px;
 }
-
-.modal-close {
+.modal-container .modal-close {
   -webkit-transform: translateY(-200%);
           transform: translateY(-200%);
-}
-
-.modal img {
-  height: 60%;
-}
-
-.cont-mod {
-  width: 100%;
-}
-.cont-mod .mod-text {
-  display: flex;
 }

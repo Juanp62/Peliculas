@@ -7,12 +7,12 @@ $(document).ready(function() {
 
     fetch(URL).then(response => response.json()).then(results => {
 
-          
-
         let a = this.original_title = results;
         let b = a.results;
         //console.log(b)
-        for(let i=0; i<b.length;  i++){    
+
+        for(let i=0; i<b.length;  i++){  
+
             if(b[i].backdrop_path == null){
                 $('#p').append(`<div class="card">`+`<img src="/../src/img/broken-image.png" />`+`<div class="cont-sub"><h2   class="sub">${b[i].name}</h2><input class="id-movie" type="hidden"  value="${b[i].id}"></div></div>`) 
             }else{
@@ -20,20 +20,28 @@ $(document).ready(function() {
             }
         }
 
-
-        //informacion ventana modal
-        $('.sub').click(function(){
+        //Ventana modal
+        $('.cta').click (function(e){
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            $('.modal-container').css({'opacity': '1', "visibility" : "visible"})
+            $('.modal').removeClass('modal-close')
+            
+            // carga de informacion 
             let id_m = $('.id-movie').val();
             const URL_season = `${BASEURL}${id_m}?api_key=${API_KEY}`;
+
             fetch(URL_season).then(response => response.json()).then(results => {
-                let a = results;
+                let a = results
                 let season = a.seasons
-                
-                $('.mod-text').append(`<img src="https://image.tmdb.org/t/p/w500${a.poster_path}"/>`);
+                console.log(a)
+                $('.cont-img').append(`<img src="https://image.tmdb.org/t/p/w500${a.poster_path}"/>`);
+                $('.cont-des').append(`<p>${a.overview}</p>`);
+
                 for (let i = 0; i < season.length; i++) {
-                    $('.mod-text').append(`<input class="btn-season" value="${season[i].name}"  type="button" >`)
-                    
+                    $('.cont-btn').append(`<input class="btn-season" value="${season[i].name}" type="button" >`)    
                 }
+
                 let btn_id = $('.btn-season').val();
                 console.log(btn_id)
                 
@@ -41,26 +49,17 @@ $(document).ready(function() {
             
                 // })
                 
-            } )              
-        })
-
-        //Ventana modal
-        $('.cta').click(function(e){
-            e.preventDefault();
-            $('.modal-container').css({'opacity': '1', "visibility" : "visible"})
-            $('.modal').removeClass('modal-close')
+            } )
         })
         
-        $('.close').click(function(){
+        $('.close').click(function(e){
+            
             $('.modal').addClass('modal-close')
             setTimeout(function(){
                 $('.modal-container').css({'opacity': '0', "visibility" : "hidden"})
-            }, 900)
+            }, 800) 
         })
-        
-     
     })
-
    
       
     
@@ -73,20 +72,16 @@ $(document).ready(function() {
                 ?movie.classList.remove("filter")
                 :movie.classList.add("filter")
             })
-        }/* if(e.target.matches('#form-search') != document.querySelectorAll(".card").values) {
+        }
+        
+        /* if(e.target.matches('#form-search') != document.querySelectorAll(".card").values) {
             document.querySelectorAll("#form-search").disabled = false;
             modalC.style.opacity = "1";
             modalC.style.visibility = "visible";
             modal.classList.toggle("modal-close");
 
         } */
-    })
-
-    
-    
-    
-
-    
+    })    
 });
 
 
